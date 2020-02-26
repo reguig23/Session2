@@ -52,7 +52,7 @@ public class DiscountEditorController extends HttpServlet {
 						request.setAttribute("message", "Impossible de supprimer " + code + ", ce code est utilisé.");
 					}
 					break;
-                                case "UPDATE":
+                                case "UPDATE":// Requête d'une Mise à jour 
                                     dao.UpdateDiscountCode(code, Float.valueOf(taux));
                                     request.setAttribute("codes", dao.allCodes());	
                                     
