@@ -44,7 +44,9 @@ public class DAO {
 		}
 		return result;
 	}
-
+        public void UpdateDiscountCode(){
+            String sql = "UPDATE table SET nom_colonne_1 = 'nouvelle valeur' WHERE condition";
+        }
 	/**
 	 * Ajout d'un enregistrement dans la table DISCOUNT_CODE
 	 * @param code le code (non null)
