@@ -44,9 +44,16 @@ public class DAO {
 		}
 		return result;
 	}
-        public void UpdateDiscountCode(){
-            String sql = "UPDATE table SET nom_colonne_1 = 'nouvelle valeur' WHERE condition";
-        }
+        public void UpdateDiscountCode(String code,float rate) throws SQLException{
+            String sql = "UPDATE DISCOUNT_CODE SET  RATE = ? WHERE DISCOUNT_CODE=? ";
+            try (Connection connection = myDataSource.getConnection(); 
+		     PreparedStatement stmt = connection.prepareStatement(sql)) {
+			stmt.setString(2, code);
+			stmt.setFloat(1, rate);
+			stmt.executeUpdate();
+		}
+		
+           }
 	/**
 	 * Ajout d'un enregistrement dans la table DISCOUNT_CODE
 	 * @param code le code (non null)
